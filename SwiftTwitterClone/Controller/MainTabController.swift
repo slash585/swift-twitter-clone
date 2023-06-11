@@ -11,6 +11,14 @@ class MainTabController: UITabBarController {
         
     //MARK: - Properties
     
+    let actionButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .white
+        button.backgroundColor = .blue
+        button.setImage(UIImage(named: "new_tweet"), for: .normal)
+        return button
+    }()
+    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -20,6 +28,10 @@ class MainTabController: UITabBarController {
     }
     
     //MARK: - Helpers
+    
+    func configureUI(){
+        view.addSubview(actionButton)
+    }
     
     func configureViewControllers(){
         
