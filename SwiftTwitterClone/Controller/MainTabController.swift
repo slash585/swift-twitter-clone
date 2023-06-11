@@ -8,22 +8,28 @@
 import UIKit
 
 class MainTabController: UITabBarController {
+    
+    //MARK: - Properties
+    
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemMint
+        configureViewControllers()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Helpers
+    
+    func configureViewControllers(){
+        
+        let feed = FeedController()
+        let explore = ExploreController()
+        let notifications = NotificationsController()
+        let conversation = ConversationsController()
+        
+        viewControllers = [feed, explore, notifications, conversation]
     }
-    */
+    
 
 }
