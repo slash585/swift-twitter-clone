@@ -9,8 +9,11 @@ import UIKit
 
 class Utilities {
     func inputContainerView(withImage image: UIImage, textField: UITextField) -> UIView {
+        
         let view = UIView()
         let iv = UIImageView()
+        let divider = UIView()
+        
         view.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         iv.image = image
@@ -21,8 +24,20 @@ class Utilities {
         
         
         view.addSubview(textField)
-        textField.anchor(left: iv.rightAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 8, paddingBottom: 0)
+        textField.anchor(left: iv.rightAnchor, bottom: iv.bottomAnchor, right: view.rightAnchor, paddingLeft: 8, paddingBottom: 0)
+        
+        view.addSubview(divider)
+        divider.backgroundColor = .white
+        divider.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 8, height: 0.75)
         
         return view
+    }
+    
+    func textField(withPlaceholder placeholder: String) -> UITextField{
+        let tf = UITextField()
+        tf.textColor = .white
+        tf.font = UIFont.systemFont(ofSize: 16)
+        tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        return tf
     }
 }
