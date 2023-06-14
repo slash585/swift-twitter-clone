@@ -10,6 +10,8 @@ import UIKit
 class RegistrationController: UIViewController {
     //MARK: - Properties
     
+    private let imagePicker = UIImagePickerController()
+    
     private let photoPlusButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -88,7 +90,7 @@ class RegistrationController: UIViewController {
     }
     
     @objc func handleAddProfilePhoto() {
-        print("handleAddProfilePhoto")
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @objc func handleRegister(){
@@ -101,6 +103,9 @@ class RegistrationController: UIViewController {
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         view.addSubview(photoPlusButton)
         photoPlusButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 10)
@@ -120,3 +125,23 @@ class RegistrationController: UIViewController {
 
     }
 }
+
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.editedImage] as? UIImage else { return }
+        
+        photoPlusButton.layer.cornerRadius = 152 / 2
+        photoPlusButton.layer.masksToBounds = true
+        photoPlusButton.layer.borderColor = UIColor.white.cgColor
+        photoPlusButton.layer.borderWidth = 3
+        photoPlusButton.imageView?.contentMode = .scaleAspectFill
+        photoPlusButton.imageView?.clipsToBounds = true
+        
+        self.photoPlusButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
