@@ -67,7 +67,8 @@ class LoginController: UIViewController {
     }
     
     @objc func handleShowSignUp() {
-        print("handleShowSignUp")
+        let registrationController = RegistrationController()
+        navigationController?.pushViewController(registrationController, animated: true)
     }
     
     //MARK: - Helpers
@@ -87,7 +88,7 @@ class LoginController: UIViewController {
         stack.distribution = .fillEqually
         
         view.addSubview(stack)
-        stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 16, paddingRight: 16)
+        stack.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
         
         view.addSubview(dontHaveAnAccountButton)
         dontHaveAnAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 40, paddingRight: 40)
