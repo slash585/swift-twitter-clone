@@ -47,4 +47,8 @@ struct AuthService {
             }
         }
     }
+    
+    func logUserIn(withEmail email: String, password: String, handler: @escaping (AuthDataResult?, Error?) -> Void){
+        Auth.auth().signIn(withEmail: email, password: password, completion: handler)
+    }
 }

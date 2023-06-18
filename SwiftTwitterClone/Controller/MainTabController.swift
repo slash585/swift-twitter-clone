@@ -26,14 +26,14 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        authenticateUserAndConfigureUI()
         view.backgroundColor = .twitterBlue
-        //logUserOut()
+        logUserOut()
+        authenticateUserAndConfigureUI()
     }
     
     //MARK: - API
     
-    func authenticateUserAndConfigureUI(){
+    func authenticateUserAndConfigureUI() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let nav = UINavigationController(rootViewController: LoginController())

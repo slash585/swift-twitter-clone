@@ -107,9 +107,20 @@ class RegistrationController: UIViewController {
         
         let credentials = AuthCredentials(email: email, password: password, username: username, fullname: fullName, profileImage: profileImage)
         
-        AuthService().registerUser(credentials: credentials) { err, ref in
-            print("DEBUG: Sing up succesfully")
-            print("DEBUG: Handle update user interface here...")
+        AuthService().registerUser(credentials: credentials) { error, ref in
+            if let error = error {
+                print("DEBUG: Error logging in \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: logged in success")
+            
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
