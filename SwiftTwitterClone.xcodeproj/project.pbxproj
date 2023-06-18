@@ -20,6 +20,7 @@
 		5663B7662A3F230E00A18C96 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5663B7652A3F230E00A18C96 /* FirebaseFirestore */; };
 		5663B7682A3F230E00A18C96 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5663B7672A3F230E00A18C96 /* FirebaseStorage */; };
 		5663B76A2A3F42D600A18C96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663B7692A3F42D600A18C96 /* Constants.swift */; };
+		5663B76C2A3F4D6000A18C96 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663B76B2A3F4D6000A18C96 /* AuthService.swift */; };
 		56C137EC2A3679EA00FCE127 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C137EB2A3679EA00FCE127 /* MainTabController.swift */; };
 		56C137EE2A367B6000FCE127 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C137ED2A367B6000FCE127 /* FeedController.swift */; };
 		56E9F7DF2A3674B200D0E12F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E9F7DE2A3674B200D0E12F /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		563EB1F02A390E6C00152377 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5663B75E2A3F226700A18C96 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5663B7692A3F42D600A18C96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5663B76B2A3F4D6000A18C96 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = SwiftTwitterClone/Utils/AuthService.swift; sourceTree = SOURCE_ROOT; };
 		56C137EB2A3679EA00FCE127 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		56C137ED2A367B6000FCE127 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		56E9F7DB2A3674B200D0E12F /* SwiftTwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 		56C137E92A3679B900FCE127 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				5663B76B2A3F4D6000A18C96 /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				563EB1F12A390E6C00152377 /* Utilities.swift in Sources */,
 				5663B76A2A3F42D600A18C96 /* Constants.swift in Sources */,
 				563EB1EF2A368C6B00152377 /* RegistrationController.swift in Sources */,
+				5663B76C2A3F4D6000A18C96 /* AuthService.swift in Sources */,
 				563EB1E52A367C2E00152377 /* NotificationsController.swift in Sources */,
 				56E9F7E12A3674B200D0E12F /* SceneDelegate.swift in Sources */,
 				563EB1E32A367C1800152377 /* ExploreController.swift in Sources */,
