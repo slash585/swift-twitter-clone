@@ -26,6 +26,7 @@
 		5663B7732A3FC72900A18C96 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5663B7722A3FC72900A18C96 /* SDWebImage */; };
 		5663B7752A3FC72900A18C96 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5663B7742A3FC72900A18C96 /* SDWebImageMapKit */; };
 		5663B7772A3FCE7F00A18C96 /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663B7762A3FCE7F00A18C96 /* UploadTweetController.swift */; };
+		5663B7792A3FD84C00A18C96 /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663B7782A3FD84C00A18C96 /* CaptionTextView.swift */; };
 		56C137EC2A3679EA00FCE127 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C137EB2A3679EA00FCE127 /* MainTabController.swift */; };
 		56C137EE2A367B6000FCE127 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C137ED2A367B6000FCE127 /* FeedController.swift */; };
 		56E9F7DF2A3674B200D0E12F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E9F7DE2A3674B200D0E12F /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		5663B76D2A3FC09C00A18C96 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = SwiftTwitterClone/Utils/UserService.swift; sourceTree = SOURCE_ROOT; };
 		5663B76F2A3FC2CC00A18C96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = SwiftTwitterClone/Utils/User.swift; sourceTree = SOURCE_ROOT; };
 		5663B7762A3FCE7F00A18C96 /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
+		5663B7782A3FD84C00A18C96 /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaptionTextView.swift; path = SwiftTwitterClone/Controller/CaptionTextView.swift; sourceTree = SOURCE_ROOT; };
 		56C137EB2A3679EA00FCE127 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		56C137ED2A367B6000FCE127 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		56E9F7DB2A3674B200D0E12F /* SwiftTwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 		56C137E52A36799E00FCE127 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5663B7782A3FD84C00A18C96 /* CaptionTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				563EB1E72A367C4900152377 /* ConversationsController.swift in Sources */,
 				5663B7772A3FCE7F00A18C96 /* UploadTweetController.swift in Sources */,
 				5663B7702A3FC2CC00A18C96 /* User.swift in Sources */,
+				5663B7792A3FD84C00A18C96 /* CaptionTextView.swift in Sources */,
 				56C137EE2A367B6000FCE127 /* FeedController.swift in Sources */,
 				56C137EC2A3679EA00FCE127 /* MainTabController.swift in Sources */,
 				563EB1F12A390E6C00152377 /* Utilities.swift in Sources */,
