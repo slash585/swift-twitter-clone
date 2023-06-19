@@ -6,10 +6,20 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabController: UITabBarController {
         
     //MARK: - Properties
+    
+    var user: User? {
+        didSet {
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            
+            feed.user = user
+        }
+    }
     
     let actionButton: UIButton = {
         let button = UIButton()
@@ -25,14 +35,49 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureViewControllers()
-        configureUI()
+        view.backgroundColor = .twitterBlue
+        //logUserOut()
+        authenticateUserAndConfigureUI()
+    }
+    
+    //MARK: - API
+    
+    func fetchUser(){
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
+    }
+    
+    func authenticateUserAndConfigureUI() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        } else {
+            configureViewControllers()
+            configureUI()
+            fetchUser()
+        }
+    }
+    
+    func logUserOut(){
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("DEBUG: Failed to sing out with error \(error.localizedDescription)")
+        }
     }
     
     //MARK: - Selectors
     
     @objc func actionButtonTapped(){
-        print("tapped :)")
+        guard let user = user else { return }
+        let controller = UploadTweetController(user: user)
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
     
     //MARK: - Helpers
@@ -41,6 +86,7 @@ class MainTabController: UITabBarController {
         view.addSubview(actionButton)
         actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56 )
         actionButton.layer.cornerRadius = 56 / 2
+        
     }
     
     func configureViewControllers(){

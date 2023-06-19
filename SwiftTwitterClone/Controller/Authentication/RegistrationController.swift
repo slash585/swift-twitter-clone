@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     //MARK: - Properties
     
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     
     private let photoPlusButton: UIButton = {
         let button = UIButton(type: .system)
@@ -94,7 +96,32 @@ class RegistrationController: UIViewController {
     }
     
     @objc func handleRegister(){
-        print("handleRegister")
+        guard let profileImage = profileImage else {
+            print("DEBUG: Please select profile image")
+            return
+        }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
+        guard let username = usernameTextField.text else { return }
+        
+        let credentials = AuthCredentials(email: email, password: password, username: username, fullname: fullName, profileImage: profileImage)
+        
+        AuthService().registerUser(credentials: credentials) { error, ref in
+            if let error = error {
+                print("DEBUG: Error logging in \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: logged in success")
+            
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     //MARK: - Helpers
@@ -130,6 +157,8 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else { return }
+        
+        self.profileImage = profileImage
         
         photoPlusButton.layer.cornerRadius = 152 / 2
         photoPlusButton.layer.masksToBounds = true
