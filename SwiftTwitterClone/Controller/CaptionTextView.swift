@@ -45,5 +45,4 @@ class CaptionTextView: UITextView {
         placeholderLabel.isHidden = !text.isEmpty
     }
     
-    
 }
